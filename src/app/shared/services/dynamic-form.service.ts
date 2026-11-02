@@ -13,6 +13,7 @@ import {
   FormField,
   FormState,
 } from '../models/dynamic-form.model';
+import { websiteValidator } from '../validators/merchant.validators';
 
 const emptyState = (): FormState => ({
   formId: '',
@@ -77,6 +78,9 @@ export class DynamicFormService {
     }
     if (field.type === 'email') {
       list.push(Validators.email);
+    }
+    if (field.type === 'url') {
+      list.push(websiteValidator);
     }
     if (field.pattern) {
       list.push(Validators.pattern(field.pattern));

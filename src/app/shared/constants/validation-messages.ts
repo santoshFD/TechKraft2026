@@ -10,6 +10,7 @@ export const DEFAULT_VALIDATION_MESSAGES: Record<string, string> = {
   phone: 'Use format (XXX) XXX-XXXX.',
   ssn: 'Use format XXX-XX-XXXX.',
   routingNumber: 'Routing number must be 9 digits.',
+  website: 'Enter a valid website URL (e.g. https://example.com).',
   legalNameDuplicate: 'This legal name is already used by another application.',
   taxIdDuplicate: 'This tax ID is already used by another application.',
 };

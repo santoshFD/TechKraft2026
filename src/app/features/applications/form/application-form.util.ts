@@ -10,6 +10,7 @@ import {
   routingNumberValidator,
   ssnValidator,
   taxIdValidator,
+  websiteValidator,
 } from '../../../shared/validators/merchant.validators';
 
 export type ApplicationFormGroup = FormGroup;
@@ -43,7 +44,7 @@ export function buildApplicationForm(
         asyncValidators ? [asyncValidators.taxId] : [],
       ],
       mcc: [source?.business.mcc ?? '', Validators.required],
-      website: [source?.business.website ?? ''],
+      website: [source?.business.website ?? '', websiteValidator],
       monthlyVolume: [source?.business.monthlyVolume ?? null],
     }),
     owner: fb.group({

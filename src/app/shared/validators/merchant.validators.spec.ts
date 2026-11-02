@@ -1,6 +1,6 @@
 import { FormControl } from '@angular/forms';
 import { describe, expect, it } from 'vitest';
-import { phoneValidator, routingNumberValidator, ssnValidator, taxIdValidator } from './merchant.validators';
+import { phoneValidator, routingNumberValidator, ssnValidator, taxIdValidator, websiteValidator } from './merchant.validators';
 
 describe('merchant validators', () => {
   it('validates tax id format', () => {
@@ -21,5 +21,12 @@ describe('merchant validators', () => {
   it('validates ssn format', () => {
     expect(ssnValidator(new FormControl('123-45-6789'))).toBeNull();
     expect(ssnValidator(new FormControl('123456789'))).toEqual({ ssn: true });
+  });
+
+  it('validates website URL', () => {
+    expect(websiteValidator(new FormControl(''))).toBeNull();
+    expect(websiteValidator(new FormControl('https://example.com'))).toBeNull();
+    expect(websiteValidator(new FormControl('example.com'))).toBeNull();
+    expect(websiteValidator(new FormControl('bad url'))).toEqual({ website: true });
   });
 });

@@ -32,6 +32,10 @@ const ROUTING_MESSAGES = {
   routingNumber: 'Routing number must be 9 digits.',
 };
 
+const WEBSITE_MESSAGES = {
+  website: 'Enter a valid website URL (e.g. https://example.com).',
+};
+
 const REQUIRED = { required: 'This field is required.' } as const;
 
 export const MERCHANT_BUSINESS_FORM: DynamicFormConfig = {
@@ -66,7 +70,16 @@ export const MERCHANT_BUSINESS_FORM: DynamicFormConfig = {
           validationMessages: TAX_ID_MESSAGES,
         },
         { id: 'mcc', name: 'mcc', type: 'text', label: 'MCC', halfWidth: true, isRequired: true, validationMessages: REQUIRED },
-        { id: 'website', name: 'website', type: 'url', label: 'Website', halfWidth: true },
+        {
+          id: 'website',
+          name: 'website',
+          type: 'url',
+          label: 'Website',
+          halfWidth: true,
+          placeholder: 'https://example.com',
+          autocomplete: 'url',
+          validationMessages: WEBSITE_MESSAGES,
+        },
         {
           id: 'monthlyVolume',
           name: 'monthlyVolume',
