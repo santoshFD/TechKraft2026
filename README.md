@@ -13,7 +13,12 @@ Angular 20 merchant application portal: RBAC, config-driven reactive forms, MSW 
 ```bash
 npm install
 npm start          # http://localhost:4200
-npm test           # 33 spec files, 59 tests
+```
+
+If `npm install` fails with peer dependency errors, ensure `.npmrc` includes `legacy-peer-deps=true` (required for Vitest 5 + `@angular/build` unit-test builder). All `@angular/*` framework packages are pinned to **20.3.34** so `@angular/animations` matches `@angular/common`.
+
+```bash
+npm test           # 34 spec files, 64 tests
 npm run build
 ```
 
